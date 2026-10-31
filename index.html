@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conect 4 Colônia - Turismo em um só lugar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Conexão com o arquivo CSS separado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- BARRA DE TESTES RÁPIDA (DEMO) -->
+  <div class="demo-bar">
+    <span>Alternar Visualização:</span>
+    <label for="screen-login">Login</label>
+    <label for="screen-type">Criar Conta</label>
+    <label for="screen-client">Turista (App)</label>
+    <label for="screen-company">Empresa (CRM)</label>
+  </div>
+
+  <!-- ==========================================================================
+       CONTROLES DE ESTADO DA APLICAÇÃO (RADIO BUTTONS)
+       ========================================================================== -->
+  <input type="radio" name="screen" id="screen-login" checked>
+  <input type="radio" name="screen" id="screen-type">
+  <input type="radio" name="screen" id="screen-pf">
+  <input type="radio" name="screen" id="screen-pj">
+
+  <!-- Perfis Logados -->
+  <input type="radio" name="screen" id="screen-client">
+  <input type="radio" name="screen" id="screen-company">
+
+  <!-- ==========================================================================
+       TELA DE LOGIN E CADASTRO
+       ========================================================================== -->
+  <div class="auth-wrapper">
+    <div class="logo.jpeg.j">
+      <img src="img/logo.jpeg.jpeg" alt="file:///c%3A/Users/nicol/OneDrive/%C3%81rea%20de%20Trabalho/meu%20site/.logo/.logo/" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x150/044705/ffffff?text=Conect+4+Col%C3%B4nia';">
+    </div>
+
+    <div class="main-container">
+
+      <!-- 1. TELA DE LOGIN -->
+      <div class="card card-login">
+        <h2>Entrar</h2>
+        
+        <form action="#" method="POST" onsubmit="event.preventDefault(); document.getElementById('screen-client').checked = true;">
+          <div class="input-group">
+            <label for="username">Usuário</label>
+            <input type="text" id="username" placeholder="Digite seu usuário" required>
+          </div>
+
+          <div class="input-group">
+            <label for="password">Senha</label>
+            <input type="password" id="password" placeholder="Digite sua senha" required>
+          </div>
+
+          <div class="signup-container">
+            <span>Ainda não tem uma conta?</span>
+            <label for="screen-type" class="btn-signup">Criar Conta</label>
+          </div>
+
+          <button type="submit" class="btn-login">Acessar</button>
+        </form>
+      </div>
+
+      <!-- 2. TELA DE SELEÇÃO DE TIPO DE CADASTRO -->
+      <div class="card card-type">
+        <h2>Criar Conta</h2>
+        <p class="subtitle">Selecione o tipo de perfil para continuar:</p>
+
+        <div class="type-options">
+          <label for="screen-pf" class="btn-type">Pessoa Física (Turista)</label>
+          <label for="screen-pj" class="btn-type">Empresa (Hotel / Restaurante)</label>
+        </div>
+
+        <div class="back-container">
+          <label for="screen-login" class="btn-back">Voltar ao Login</label>
+        </div>
+      </div>
+
+      <!-- 3. TELA DE CADASTRO - PESSOA FÍSICA -->
+      <div class="card card-pf">
+        <h2>Cadastro Pessoa Física</h2>
+
+        <form action="#" method="POST" onsubmit="event.preventDefault(); document.getElementById('screen-client').checked = true;">
+          <div class="input-group">
+            <label for="pf-nome">Nome Completo</label>
+            <input type="text" id="pf-nome" placeholder="Digite seu nome completo" required>
+          </div>
+
+          <div class="input-group">
+            <label for="pf-cidade">Cidade</label>
+            <input type="text" id="pf-cidade" placeholder="Digite sua cidade" required>
+          </div>
+
+          <div class="input-group">
+            <label for="pf-senha">Senha</label>
+            <input type="password" id="pf-senha" placeholder="Crie uma senha" required>
+          </div>
+
+          <div class="form-actions">
+            <label for="screen-client" class="btn-submit">Concluir</label>
+          </div>
+
+          <div class="back-container">
+            <label for="screen-type" class="btn-back">Voltar</label>
+          </div>
+        </form>
+      </div>
+
+      <!-- 4. TELA DE CADASTRO - EMPRESA (PJ) -->
+      <div class="card card-pj">
+        <h2>Cadastro Empresa</h2>
+
+        <form action="#" method="POST" onsubmit="event.preventDefault(); document.getElementById('screen-company').checked = true;">
+          <div class="input-group">
+            <label for="pj-nome">Nome da Empresa</label>
+            <input type="text" id="pj-nome" placeholder="Digite o nome da empresa" required>
+          </div>
+
+          <div class="input-group">
+            <label for="pj-cnpj">CNPJ</label>
+            <input type="text" id="pj-cnpj" placeholder="00.000.000/0000-00" required>
+          </div>
+
+          <div class="input-group">
+            <label for="pj-contato">Número de Contato</label>
+            <input type="tel" id="pj-contato" placeholder="(00) 00000-0000" required>
+          </div>
+
+          <div class="input-group">
+            <label for="pj-descricao">Descrição da Empresa</label>
+            <textarea id="pj-descricao" rows="3" placeholder="Descreva brevemente a empresa" required></textarea>
+          </div>
+
+          <div class="input-group">
+            <label for="pj-logo">Logo da Empresa (PNG / Imagem)</label>
+            <input type="file" id="pj-logo" accept="image/*">
+          </div>
+
+          <div class="form-actions">
+            <label for="screen-company" class="btn-submit">Concluir</label>
+          </div>
+
+          <div class="back-container">
+            <label for="screen-type" class="btn-back">Voltar</label>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ==========================================================================
+       ÁREA DO CLIENTE (TURISTA) - PÓS-LOGIN
+       ========================================================================== -->
+  <div class="app-viewport app-viewport-client">
+    <header>
+      <div class="brand-logo">
+        <img src="img/logo.png" alt="Logo Conect 4 Colônia" onerror="this.onerror=null; this.src='https://via.placeholder.com/40x40/044705/ffffff?text=C4C';">
+        <div class="brand-title">
+          Conect 4 Colônia
+          <span>TURISMO EM UM SÓ LUGAR</span>
+        </div>
+      </div>
+
+      <div class="user-actions">
+        <span>Olá, <strong>Visitante</strong></span>
+        <label for="screen-login" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Sair</label>
+      </div>
+    </header>
+
+    <!-- Controles das Abas do Turista -->
+    <input type="radio" name="client-tab" id="tab-home" checked>
+    <input type="radio" name="client-tab" id="tab-search">
+    <input type="radio" name="client-tab" id="tab-map">
+    <input type="radio" name="client-tab" id="tab-place">
+    <input type="radio" name="client-tab" id="tab-account">
+    <input type="radio" name="client-tab" id="tab-notifications">
+
+    <div class="tab-nav">
+      <label for="tab-home"><i class="fa-solid fa-house"></i> Início</label>
+      <label for="tab-search"><i class="fa-solid fa-magnifying-glass"></i> Busca</label>
+      <label for="tab-map"><i class="fa-solid fa-map-location-dot"></i> Mapa Interativo</label>
+      <label for="tab-place"><i class="fa-solid fa-hotel"></i> Estabelecimento</label>
+      <label for="tab-account"><i class="fa-solid fa-user"></i> Minha Conta</label>
+      <label for="tab-notifications"><i class="fa-solid fa-bell"></i> Notificações <span class="notif-badge">2</span></label>
+    </div>
+
+    <!-- Conteúdo 1: Início (Com links diretos para reserva) -->
+    <div class="tab-content tab-content-home">
+      <div class="hero">
+        <h1>Descubra a Quarta Colônia</h1>
+        <p>Natureza, cultura, gastronomia e hospitalidade em um só lugar.</p>
+        <div class="search-box">
+          <input type="text" placeholder="O que você procura? (ex: Pousada, Restaurante...)">
+          <label for="tab-search" class="btn-search-hero"><i class="fa-solid fa-magnifying-glass"></i> Buscar</label>
+        </div>
+      </div>
+
+      <h2>Destaques da Região (Clique para Reservar)</h2>
+      <div class="grid">
+        <label for="tab-place" class="card-item card-clickable">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80" alt="Hotel Colônia">
+          <div class="card-body">
+            <div class="card-title">Hotel Colônia</div>
+            <div class="card-subtitle">São João do Polêsine • ★ 4.8</div>
+            <div class="card-price">
+              <span>A partir de R$ 220/noite</span>
+              <span class="btn-reserve-mini">Reservar</span>
+            </div>
+          </div>
+        </label>
+
+        <label for="tab-place" class="card-item card-clickable">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=500&q=80" alt="Pousada Caminhos da Serra">
+          <div class="card-body">
+            <div class="card-title">Pousada Caminhos da Serra</div>
+            <div class="card-subtitle">Silveira Martins • ★ 4.7</div>
+            <div class="card-price">
+              <span>A partir de R$ 180/noite</span>
+              <span class="btn-reserve-mini">Reservar</span>
+            </div>
+          </div>
+        </label>
+
+        <label for="tab-place" class="card-item card-clickable">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=500&q=80" alt="Restaurante Sabor da Serra">
+          <div class="card-body">
+            <div class="card-title">Restaurante Sabor da Serra</div>
+            <div class="card-subtitle">Faxinal do Soturno • ★ 4.9</div>
+            <div class="card-price">
+              <span>Gastronomia Típica</span>
+              <span class="btn-reserve-mini">Ver Menu</span>
+            </div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Conteúdo 2: Busca Aprimorada -->
+    <div class="tab-content tab-content-search">
+      <h2>Resultado da Busca e Filtros</h2>
+      <div class="search-filter-container">
+        <input type="text" placeholder="Pesquise por nome, cidade ou comodidade (ex: Wi-Fi, Piscina)..." class="advanced-search-input">
+        <div class="filter-chips">
+          <span class="chip active">Todos</span>
+          <span class="chip">Hotéis</span>
+          <span class="chip">Pousadas</span>
+          <span class="chip">Restaurantes</span>
+          <span class="chip">Café Colonial</span>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top: 20px;">
+        <div class="card-item">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80" alt="Hotel Colônia">
+          <div class="card-body">
+            <div class="card-title">Hotel Colônia</div>
+            <div class="card-subtitle">São João do Polêsine • Wi-Fi • Estac. • Café da Manhã</div>
+            <div class="card-price">
+              <span>R$ 220 / noite</span>
+              <label for="tab-place" style="background:#044705; color:white; padding:6px 12px; border-radius:6px; cursor:pointer; font-size:12px;">Ver Detalhes</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conteúdo 3: Mapa Interativo (Preservado) -->
+    <div class="tab-content tab-content-map">
+      <h2 style="margin-bottom: 16px;">Mapa Interativo da Quarta Colônia</h2>
+      <iframe class="map-frame" src="https://www.google.com/maps/d/embed?mid=1tkCwF9YXRIKtsocbNTps3266G7XSvZg" allowfullscreen></iframe>
+    </div>
+
+    <!-- Conteúdo 4: Página do Estabelecimento (Reserva Direta) -->
+    <div class="tab-content tab-content-place">
+      <div style="background:white; padding:24px; border-radius:12px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+        <h2>Hotel Colônia</h2>
+        <p style="color:#64748b; margin-bottom: 16px;">São João do Polêsine • ★ 4.8 (104 avaliações)</p>
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80" style="width:100%; height:320px; object-fit:cover; border-radius:8px; margin-bottom:20px;" alt="Hotel">
+        <h3>Sobre o local</h3>
+        <p style="color:#475569; line-height:1.6; margin-top:8px;">O Hotel Colônia oferece conforto e tranquilidade no coração da Quarta Colônia, com quartos aconchegantes e café da manhã típico regional.</p>
+        
+        <div class="reservation-box" style="margin-top: 24px; padding: 20px; background: #f8fafc; border-radius: 8px;">
+          <h3>Fazer Reserva</h3>
+          <div style="display: flex; gap: 12px; margin-top: 12px; flex-wrap: wrap;">
+            <div class="input-group" style="flex:1; min-width: 200px;">
+              <label>Check-in</label>
+              <input type="date">
+            </div>
+            <div class="input-group" style="flex:1; min-width: 200px;">
+              <label>Check-out</label>
+              <input type="date">
+            </div>
+          </div>
+          <button onclick="alert('Reserva efetuada com sucesso!'); document.getElementById('tab-account').checked = true;" class="btn-submit" style="margin-top: 12px;">Confirmar Reserva</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conteúdo 5: Minha Conta (Reservas Atuais + Histórico de Estadias) -->
+    <div class="tab-content tab-content-account">
+      <h2>Minhas Reservas Atuais</h2>
+      <div style="background:white; padding:20px; border-radius:12px; margin-top:16px;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Estabelecimento</th>
+              <th>Data</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hotel Colônia</td>
+              <td>10/11/2026 - 12/11/2026</td>
+              <td><span class="badge badge-success">Confirmada</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 style="margin-top: 32px;">Histórico de Hotéis Hospedados</h2>
+      <div style="background:white; padding:20px; border-radius:12px; margin-top:16px;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Estabelecimento</th>
+              <th>Período</th>
+              <th>Avaliação Feita</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pousada Caminhos da Serra</td>
+              <td>15/07/2025 - 18/07/2025</td>
+              <td>⭐ 5.0 (Excelente)</td>
+              <td><button class="btn-review" onclick="alert('Abrindo formulário de avaliação...')">Avaliar Novamente</button></td>
+            </tr>
+            <tr>
+              <td>Hotel Vale Verde</td>
+              <td>10/01/2025 - 12/01/2025</td>
+              <td>⭐ 4.5 (Muito bom)</td>
+              <td><button class="btn-review" onclick="alert('Abrindo formulário de avaliação...')">Avaliar Novamente</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Conteúdo 6: Notificações e Promoções -->
+    <div class="tab-content tab-content-notifications">
+      <h2>Notificações e Promoções de Seus Locais de Interesse</h2>
+      <div class="notifications-list" style="margin-top: 16px; display: flex; flex-direction: column; gap: 16px;">
+        <div class="notif-card" style="background: white; padding: 20px; border-radius: 12px; border-left: 5px solid #044705; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="color: #044705; font-size: 16px;">🔥 Promoção Especial: Hotel Colônia</h3>
+            <span style="font-size: 12px; color: #64748b;">Há 2 horas</span>
+          </div>
+          <p style="color: #475569; margin-top: 8px;">Você demonstrou interesse recentemente! Aproveite 15% de desconto em reservas feitas para este final de semana na Quarta Colônia.</p>
+          <label for="tab-place" class="btn-submit" style="display: inline-block; width: auto; padding: 8px 16px; margin-top: 12px; font-size: 14px; cursor: pointer;">Aproveitar Desconto</label>
+        </div>
+
+        <div class="notif-card" style="background: white; padding: 20px; border-radius: 12px; border-left: 5px solid #4f46e5; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="color: #4f46e5; font-size: 16px;">🍷 Festival Gastronômico Regional</h3>
+            <span style="font-size: 12px; color: #64748b;">Ontem</span>
+          </div>
+          <p style="color: #475569; margin-top: 8px;">O Restaurante Sabor da Serra preparou um cardápio colonial exclusivo para os próximos turistas cadastrados. Venha conferir!</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ==========================================================================
+       PAINEL DA EMPRESA (DASHBOARD CRM) - PÓS-LOGIN
+       ========================================================================== -->
+  <div class="app-viewport app-viewport-company">
+    <header>
+      <div class="brand-logo">
+        <img src="img/logo.png" alt="Logo Conect 4 Colônia" onerror="this.onerror=null; this.src='https://via.placeholder.com/40x40/044705/ffffff?text=C4C';">
+        <div class="brand-title">
+          Conect 4 Colônia
+          <span>PAINEL DA EMPRESA (CRM)</span>
+        </div>
+      </div>
+
+      <div class="user-actions">
+        <span>Pousada Caminhos da Serra</span>
+        <label for="screen-login" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Sair</label>
+      </div>
+    </header>
+
+    <!-- Controles das Abas da Empresa -->
+    <input type="radio" name="comp-tab" id="comp-dash" checked>
+    <input type="radio" name="comp-tab" id="comp-res">
+    <input type="radio" name="comp-tab" id="comp-rooms">
+    <input type="radio" name="comp-tab" id="comp-profile">
+    <input type="radio" name="comp-tab" id="comp-map">
+    <input type="radio" name="comp-tab" id="comp-perf">
+    <input type="radio" name="comp-tab" id="comp-help">
+
+    <div class="tab-nav">
+      <label for="comp-dash"><i class="fa-solid fa-chart-line"></i> Dashboard</label>
+      <label for="comp-res"><i class="fa-solid fa-calendar-check"></i> Reservas</label>
+      <label for="comp-rooms"><i class="fa-solid fa-bed"></i> Quartos</label>
+      <label for="comp-profile"><i class="fa-solid fa-store"></i> Perfil Público</label>
+      <label for="comp-map"><i class="fa-solid fa-map"></i> Mapa</label>
+      <label for="comp-perf"><i class="fa-solid fa-chart-pie"></i> Desempenho</label>
+      <label for="comp-help"><i class="fa-solid fa-headset"></i> Suporte</label>
+    </div>
+
+    <!-- Aba 1: Dashboard CRM -->
+    <div class="tab-content tab-comp-dash">
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-label">Ocupação Atual</div>
+          <div class="metric-value">75%</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Reservas Hoje</div>
+          <div class="metric-value">5</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Check-ins Previstos</div>
+          <div class="metric-value">3</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Check-outs Hoje</div>
+          <div class="metric-value">2</div>
+        </div>
+      </div>
+
+      <h3>Reservas Recentes</h3>
+      <table class="data-table" style="margin-top: 12px;">
+        <thead>
+          <tr>
+            <th>Hóspede</th>
+            <th>Check-in</th>
+            <th>Check-out</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ana Souza</td>
+            <td>10/11/2026</td>
+            <td>12/11/2026</td>
+            <td><span class="badge badge-success">Confirmada</span></td>
+          </tr>
+          <tr>
+            <td>Carlos Lima</td>
+            <td>11/11/2026</td>
+            <td>13/11/2026</td>
+            <td><span class="badge badge-success">Confirmada</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Aba 2: Gestão de Reservas -->
+    <div class="tab-content tab-comp-res">
+      <h2>Gestão de Reservas</h2>
+      <table class="data-table" style="margin-top: 16px;">
+        <thead>
+          <tr>
+            <th>Hóspede</th>
+            <th>Datas</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fernanda Alves</td>
+            <td>12/11 - 14/11</td>
+            <td><span class="badge badge-warning">Pendente</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Aba 3: Gestão de Quartos -->
+    <div class="tab-content tab-comp-rooms">
+      <h2>Quartos e Tarifas</h2>
+      <table class="data-table" style="margin-top: 16px;">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Total</th>
+            <th>Disponíveis</th>
+            <th>Preço (Diária)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Standard</td>
+            <td>5</td>
+            <td>3</td>
+            <td>R$ 180</td>
+          </tr>
+          <tr>
+            <td>Luxo</td>
+            <td>3</td>
+            <td>2</td>
+            <td>R$ 250</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Aba 4: Perfil Público (Com opção de adicionar mais coisas/comodidades) -->
+    <div class="tab-content tab-comp-profile">
+      <h2>Editar Perfil Público do Estabelecimento</h2>
+      <p style="color:#64748b; margin-top:8px; margin-bottom: 20px;">Adicione mais fotos, comodidades e informações para atrair turistas na plataforma.</p>
+      
+      <div style="background:white; padding:24px; border-radius:12px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+        <form onsubmit="event.preventDefault(); alert('Perfil atualizado com sucesso!');">
+          <div class="input-group">
+            <label>Título / Nome do Estabelecimento</label>
+            <input type="text" value="Pousada Caminhos da Serra" required>
+          </div>
+          <div class="input-group">
+            <label>Adicionar Novas Fotos (Galeria)</label>
+            <input type="file" multiple accept="image/*">
+          </div>
+          <div class="input-group">
+            <label>Comodidades Oferecidas (Separe por vírgulas)</label>
+            <input type="text" value="Wi-Fi gratuito, Estacionamento, Café colonial, Pet Friendly, Piscina térmica">
+          </div>
+          <div class="input-group">
+            <label>Horário de Funcionamento / Check-in</label>
+            <input type="text" value="Check-in a partir das 14:00 • Recepção 24h">
+          </div>
+          <button type="submit" class="btn-submit" style="width: auto; padding: 10px 24px;">Salvar Alterações</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Aba 5: Integração com Mapa (Preservado) -->
+    <div class="tab-content tab-comp-map">
+      <h2 style="margin-bottom: 16px;">Localização no Mapa da Região</h2>
+      <iframe class="map-frame" src="https://www.google.com/maps/d/embed?mid=1tkCwF9YXRIKtsocbNTps3266G7XSvZg" allowfullscreen></iframe>
+    </div>
+
+    <!-- Aba 6: Desempenho (Com Gráfico de Origem dos Clientes) -->
+    <div class="tab-content tab-comp-perf">
+      <h2>Seu Desempenho e Estatísticas</h2>
+      <div class="metrics-grid" style="margin-top: 16px;">
+        <div class="metric-card">
+          <div class="metric-label">Visualizações do Perfil</div>
+          <div class="metric-value">350</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Cliques no WhatsApp</div>
+          <div class="metric-value">42</div>
+        </div>
+      </div>
+
+      <!-- Gráfico de Origem dos Clientes (CSS Chart) -->
+      <div style="background:white; padding:24px; border-radius:12px; margin-top:24px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+        <h3 style="margin-bottom: 16px; color: #1e293b;">De onde vêm os seus clientes (Cidades de Origem)</h3>
+        
+        <div class="chart-container" style="display: flex; flex-direction: column; gap: 14px;">
+          <div class="chart-row">
+            <span style="font-size: 14px; font-weight: 600; color: #475569;">Santa Maria - RS (45%)</span>
+            <div style="background: #e2e8f0; border-radius: 6px; height: 16px; width: 100%; margin-top: 4px; overflow: hidden;">
+              <div style="background: #044705; height: 100%; width: 45%;"></div>
+            </div>
+          </div>
+          <div class="chart-row">
+            <span style="font-size: 14px; font-weight: 600; color: #475569;">Porto Alegre - RS (30%)</span>
+            <div style="background: #e2e8f0; border-radius: 6px; height: 16px; width: 100%; margin-top: 4px; overflow: hidden;">
+              <div style="background: #4f46e5; height: 100%; width: 30%;"></div>
+            </div>
+          </div>
+          <div class="chart-row">
+            <span style="font-size: 14px; font-weight: 600; color: #475569;">Caxias do Sul - RS (15%)</span>
+            <div style="background: #e2e8f0; border-radius: 6px; height: 16px; width: 100%; margin-top: 4px; overflow: hidden;">
+              <div style="background: #10b981; height: 100%; width: 15%;"></div>
+            </div>
+          </div>
+          <div class="chart-row">
+            <span style="font-size: 14px; font-weight: 600; color: #475569;">Outras Cidades (10%)</span>
+            <div style="background: #e2e8f0; border-radius: 6px; height: 16px; width: 100%; margin-top: 4px; overflow: hidden;">
+              <div style="background: #f59e0b; height: 100%; width: 10%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aba 7: Suporte e Ajuda -->
+    <div class="tab-content tab-comp-help">
+      <h2>Central de Ajuda</h2>
+      <p style="color:#64748b; margin-top:8px;">Precisa de suporte ou dúvidas sobre o CRM da plataforma?</p>
+    </div>
+  </div>
+
+</body>
+</html>
